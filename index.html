@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Academia da Consciência</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@200;300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --off-white: #f5f2ee;
+      --mist: #d6d0ca;
+      --stone: #a09890;
+      --deep: #5a5450;
+      --ink: #2e2a28;
+    }
+
+    html, body {
+      width: 100%; height: 100%;
+      overflow: hidden;
+    }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background-color: var(--off-white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Background image */
+    .bg {
+      position: fixed;
+      inset: 0;
+      background-image: url('nevoa_04.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0;
+      animation: fadeInBg 2.5s ease forwards;
+    }
+
+    @keyframes fadeInBg {
+      to { opacity: 1; }
+    }
+
+    /* Subtle vignette over the mist */
+    .bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, transparent 40%, rgba(210, 203, 196, 0.25) 100%);
+    }
+
+    /* Center content */
+    .content {
+      position: relative;
+      z-index: 10;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      padding: 0 2rem;
+    }
+
+    /* Thin horizontal rule */
+    .rule {
+      width: 0;
+      height: 1px;
+      background: var(--stone);
+      margin-bottom: 2.4rem;
+      animation: expandRule 1.2s ease 0.8s forwards;
+    }
+
+    @keyframes expandRule {
+      to { width: 60px; }
+    }
+
+    /* Main title */
+    h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.6rem, 5vw, 2.8rem);
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ink);
+      opacity: 0;
+      transform: translateY(16px);
+      animation: riseIn 1.2s ease 1s forwards;
+      line-height: 1.2;
+    }
+
+    /* Subtitle block */
+    .subtitle {
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.2rem;
+      opacity: 0;
+      transform: translateY(12px);
+      animation: riseIn 1.2s ease 1.6s forwards;
+    }
+
+    .subtitle p {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: clamp(0.78rem, 2.5vw, 0.92rem);
+      letter-spacing: 0.18em;
+      color: var(--deep);
+      text-transform: uppercase;
+      line-height: 1.9;
+    }
+
+    /* Instagram block */
+    .ig-block {
+      margin-top: 2.8rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.9rem;
+      opacity: 0;
+      transform: translateY(10px);
+      animation: riseIn 1.2s ease 2.2s forwards;
+    }
+
+    .ig-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: var(--deep);
+      transition: opacity 0.3s ease;
+    }
+
+    .ig-link:hover { opacity: 0.6; }
+
+    .ig-icon {
+      width: 26px;
+      height: 26px;
+      opacity: 0.75;
+    }
+
+    .ig-handle {
+      font-family: 'Jost', sans-serif;
+      font-weight: 200;
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: lowercase;
+      color: var(--stone);
+    }
+
+    /* Bottom rule */
+    .rule-bottom {
+      width: 0;
+      height: 1px;
+      background: var(--stone);
+      margin-top: 2.4rem;
+      animation: expandRule 1.2s ease 2.6s forwards;
+    }
+
+    @keyframes riseIn {
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="bg"></div>
+
+  <div class="content">
+    <div class="rule"></div>
+
+    <h1>Academia da Consciência</h1>
+
+    <div class="subtitle">
+      <p>Em breve, novidades.</p>
+      <p>Enquanto isso, siga nosso perfil.</p>
+    </div>
+
+    <div class="ig-block">
+      <a class="ig-link" href="https://www.instagram.com/academiaconsciencia" target="_blank" rel="noopener">
+        <!-- Instagram SVG icon -->
+        <svg class="ig-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="2" y="2" width="20" height="20" rx="5.5" stroke="#5a5450" stroke-width="1.4" fill="none"/>
+          <circle cx="12" cy="12" r="4.2" stroke="#5a5450" stroke-width="1.4" fill="none"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="#5a5450"/>
+        </svg>
+        <span class="ig-handle">@academiaconsciencia</span>
+      </a>
+    </div>
+
+    <div class="rule-bottom"></div>
+  </div>
+
+</body>
+</html>
